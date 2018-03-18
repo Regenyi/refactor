@@ -5,7 +5,7 @@ from copy import deepcopy, copy
 
 # Globális változók
 
-
+choosen_sudoku = []
 level_dict = {"1": "easy_sudoku2.csv", "2": "medium_sudoku.csv", "3": "hard_sudoku.csv"}
 choosen_row = ""
 choosen_column = ""
@@ -28,10 +28,6 @@ END_GREEN = "\u001b[0m"
 START_BOLD = "\033[1m"
 END_BOLD = "\033[0m"
 
-class GameData: 
-    choosen_sudoku = []
-
-game_data = GameData()
 
 # waits for an input before continue
 def wait():
@@ -143,8 +139,8 @@ def draw_board():
 def restart_func(choosen_sudoku):
     global restart
     restart = True
-    game_data.choosen_sudoku = deepcopy(original)
-    return game_data.choosen_sudoku
+    choosen_sudoku = deepcopy(original)
+    return choosen_sudoku
 
 
 # exports the time of the game to an external file with the player's name
